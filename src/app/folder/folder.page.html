@@ -1,21 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="secondary" >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content >
+  <ion-card>
+    <ion-card-header>
+    <ion-card-subtitle>Welcome to our Article Managment
+      System </ion-card-subtitle>
+    </ion-card-header>
+    
+    </ion-card>
+  
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

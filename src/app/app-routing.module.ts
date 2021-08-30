@@ -10,6 +10,18 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'provider',
+    loadChildren: () => import('./provider/provider.module').then( m => m.ProviderPageModule)
+  },
+  {
+    path: 'add-provider',
+    loadChildren: () => import('./add-provider/add-provider.module').then( m => m.AddProviderPageModule)
+  },
+  {
+    path: 'update-provider/:id',
+    loadChildren: () => import('./update-provider/update-provider.module').then( m => m.UpdateProviderPageModule)
   }
 ];
 

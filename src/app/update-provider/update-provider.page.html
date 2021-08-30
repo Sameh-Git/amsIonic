@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Update Provider</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" style="padding-top:10%;">
+  <form (ngSubmit)="updateProvider()">
+    <ion-item>
+     
+      <ion-input [(ngModel)]="name" name="providerName" type="text" id="providerName" placeholder="Provider Name"  ></ion-input>
+    </ion-item>
+    <ion-item>
+      
+      <ion-input  type="text" [(ngModel)]="adress" name="providerAdress"  id="providerAdress"  placeholder="Provider Address" ></ion-input>
+    </ion-item>
+    <ion-item>
+    
+      <ion-input [(ngModel)]="email" name="providerEmail"  type="text" id="providerEmail" placeholder="Provider Email" ></ion-input>
+    </ion-item>
+   <br>
+    <ion-button type="submit"  expand="block" style="margin: 4%;">Update Provider</ion-button>
+  </form>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

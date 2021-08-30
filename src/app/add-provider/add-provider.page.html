@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Provider</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> <div id="container" style="padding-top:10%;">
+  <form #myform="ngForm" (ngSubmit)="createProvider(myform)" >
+   
+    <ion-item >
+      <ion-label>Provider Name</ion-label>
+      <ion-input ngModel name="providerName"  type="text" id="providerName" placeholder="Enter Name"  ></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label>Provider Email</ion-label>
+      <ion-input ngModel name="providerEmail"  type="text" id="providerEmail" placeholder="Enter Email"   ></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label>Provider Address</ion-label>
+      <ion-input  type="text" ngModel name="providerAdress"  id="providerAdress"  placeholder="Enter Address" ></ion-input>
+    </ion-item>
+   
+   <br>
+    <ion-button type="submit"  expand="block"  style="margin: 4%;">Add Provider</ion-button>
+  </form>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "amsIonic",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

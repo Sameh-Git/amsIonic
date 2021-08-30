@@ -1,0 +1,7 @@
+{
+  "name": "amsIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

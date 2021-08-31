@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./update-provider.page.scss'],
 })
 export class UpdateProviderPage implements OnInit {
-providers;
   id: any;
   providerToUpdate: any;
   name: any;
   email: any;
   adress: any;
-  
+  nomImage;
+  selectedFile: File;
   constructor(private service: ProviderService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -26,7 +26,7 @@ providers;
             this.name = response["name"];
             this.email = response["email"];
             this.adress = response["address"];
-           
+            this.nomImage = response["logo"];
 
 
           }
@@ -38,7 +38,11 @@ providers;
 
   }
 
-  
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+  }
   updateProvider() {
     this.providerToUpdate = {
       'name': this.name,
@@ -46,26 +50,23 @@ providers;
       'address': this.adress,
       'id': this.id
     }
-    this.service.updateProvider(this.providerToUpdate).subscribe(
+    const provider = new FormData();
+    provider.append('imageFile', this.selectedFile, this.selectedFile.name);
+    provider.append('imageName',this.selectedFile.name);
+    provider.append('name', this.name);
+    provider.append('email', this.email);
+    provider.append('address', this.adress);
+    provider.append('id', this.id);
+
+
+    //this.service.updateProvider(this.providerToUpdate).subscribe(
+      this.service.updateProvider(provider,this.id).subscribe(
       response => {
         console.log(response);
         alert("Modification successfully!")
-        
         this.router.navigate(['provider']);
       }
     );
 
   }
-    
-  refreshListProviders() {
-
-    this.service.listProviders().subscribe(
-      response => {
-        this.providers = response;
-      }
-    );
-    
-  }
-      }
-  
-
+}

@@ -8,19 +8,32 @@
 </ion-header>
 
 <ion-content>
-  <div id="container" style="padding-top:10%;">
+  <div id="container" style="padding-top:0%;">
   <form (ngSubmit)="updateProvider()">
     <ion-item>
-     
+      <ion-label> <b style="color: rgb(1, 92, 153);"> Provider Name </b></ion-label>
       <ion-input [(ngModel)]="name" name="providerName" type="text" id="providerName" placeholder="Provider Name"  ></ion-input>
     </ion-item>
+
     <ion-item>
-      
+      <ion-label><b style="color: rgb(1, 92, 153);">Provider Email </b></ion-label>
+      <ion-input [(ngModel)]="email" name="providerEmail"  type="text" id="providerEmail" placeholder="Provider Email" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b style="color: rgb(1, 92, 153);"> Provider Address </b></ion-label>
       <ion-input  type="text" [(ngModel)]="adress" name="providerAdress"  id="providerAdress"  placeholder="Provider Address" ></ion-input>
     </ion-item>
-    <ion-item>
+  
+    <ion-item >
+      
+       <img src="http://127.0.0.1:8080/images/provider/{{nomImage}}">
     
-      <ion-input [(ngModel)]="email" name="providerEmail"  type="text" id="providerEmail" placeholder="Provider Email" ></ion-input>
+    </ion-item>
+    
+    <ion-item >
+      <ion-label>  <b style="color: rgb(1, 92, 153);">New Logo </b></ion-label>
+      <ion-input  type="file" ngModel name="providerImage"  id="providerImage" (change)="onFileChanged($event)" placeholder="Enter Logo" ></ion-input>
     </ion-item>
    <br>
     <ion-button type="submit"  expand="block" style="margin: 4%;">Update Provider</ion-button>

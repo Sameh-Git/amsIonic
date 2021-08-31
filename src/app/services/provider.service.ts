@@ -14,26 +14,22 @@ export class ProviderService {
   }
 
 
-  createProvider(myform: any) {
-
-    this.provider = {
-      'name': myform.value.providerName,
-      'email': myform.value.providerEmail,
-      'address': myform.value.providerAdress
-    }
+  createProvider(provider) {
     
-    return this.Http.post(this.urlProviders + '/add', this.provider);
-  }
+    
+    return this.Http.post(this.urlProviders + '/add', provider );
+    }
+
   deleteProvider(myObj: any) {
 
      return this.Http.delete(this.urlProviders  + '/' + myObj['id'])
    }
 
   
-   updateProvider(myObj) {
-
-    return this.Http.put(this.urlProviders + '/' + myObj['id'], myObj);
-     }
+   updateProvider(myObj,id) {
+   
+    return this.Http.put(this.urlProviders + '/' + id, myObj);
+    }
 
      getProvider(id : any) {
     

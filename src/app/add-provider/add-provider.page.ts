@@ -9,27 +9,40 @@ import { Router } from '@angular/router';
 })
 export class AddProviderPage implements OnInit {
 
-  provider = {
-    name: '',
-    adress: '',
-    email:''
-  };
+  provider;
+  selectedFile: File;
+  
+  id:any;
+  providers:any;
   constructor(private service: ProviderService , private router: Router) { }
 
   ngOnInit() {
   }
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+  }
   createProvider(myform) {
-    
-    this.service.createProvider(myform).subscribe(
-      (response) => {
+    const provider = new FormData();
+    provider.append('imageFile', this.selectedFile, this.selectedFile.name);
+    provider.append('imageName',this.selectedFile.name);
+    provider.append('name', myform.value.providerName);
+    provider.append('email', myform.value.providerEmail);
+    provider.append('address', myform.value.providerAdress);
+
+    this.service.createProvider(provider).subscribe(
+      (response) =>{
         console.log(response);
         alert("Ajout avec succes!")
-        this.router.navigate(['provider']);
-      }
+    this.router.navigate(['provider']);
+    }
     );
+   
+    }
       
   }
         
     
    
-}
+

@@ -22,6 +22,12 @@
       <ion-label>Provider Address</ion-label>
       <ion-input  type="text" ngModel name="providerAdress"  id="providerAdress"  placeholder="Enter Address" ></ion-input>
     </ion-item>
+    <ion-item >
+      <ion-label>Provider Logo</ion-label>
+      <ion-input  type="file" ngModel name="providerImage"  id="providerImage" (change)="onFileChanged($event)" placeholder="Enter Logo" ></ion-input>
+    </ion-item>
+
+    
    
    <br>
     <ion-button type="submit"  expand="block"  style="margin: 4%;">Add Provider</ion-button>

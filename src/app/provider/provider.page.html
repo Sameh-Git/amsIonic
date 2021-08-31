@@ -14,9 +14,9 @@
     </ion-list-header>
   <ion-item *ngFor="let p of providers">
  
-    <!--ion-avatar slot="start">
-      <img src="">
-    </ion-avatar-->
+    <ion-label id="l">
+      <img src="http://127.0.0.1:8080/images/provider/{{p.logo}}"  with="6%" height="5%">
+    </ion-label>
     <ion-label>
       <h2>{{p.name}}</h2>
       <p>{{p.email}}</p>

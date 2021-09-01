@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title align="center">Registration </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="light"  >
+  
+  <div style="padding-top: 35px;" >
+  <ion-card align="center">
+    <ion-card-header>
+      <ion-card-title><p style="color: rgb(32, 144, 178)">Registration Form</p></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #myform="ngForm" (ngSubmit)="createUser(myform)">
+        <ion-item>
+          <ion-label>
+       First Name
+          </ion-label>
+          <ion-input placeholder="Enter First Name" ngModel name="name" size="20" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Last Name
+          </ion-label>
+          <ion-input placeholder="Enter Last Name" ngModel name="lname" size="20" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Email
+          </ion-label>
+          <ion-input placeholder="Enter Email" ngModel name="username" size="20" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+          Password
+          </ion-label>
+          <ion-input type="password" placeholder="Enter password" ngModel name="password" name="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Choose your role</ion-label>
+          <ion-select ngModel name="role" ok-text="Ok" cancel-text="Cancel">
+            <ion-select-option value="Admin">Admin</ion-select-option>
+            <ion-select-option value="Superadmin">Superadmin</ion-select-option>
+            <ion-select-option value="User">User</ion-select-option>
+          
+          </ion-select>
+        
+        </ion-item>
+
+        
+
+        <ion-button expand="block"   type="submit">Rgister</ion-button>
+      </form>
+      <p class="login-form__footer" align="center" style="padding-top: 6px;">Have account <a routerLink="/login" class="text-primary">Sign in </a> now</p>
+
+    </ion-card-content>
+  </ion-card></div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

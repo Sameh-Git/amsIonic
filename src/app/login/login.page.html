@@ -1,0 +1,47 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-title align="center">Login </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="light"  >
+  
+<div style="padding-top: 80px;" >
+  <ion-card align="center"  >
+    <ion-card-header>
+     
+
+      <ion-card-title> <img src="../../assets/login.jpg" width="80" height="70"> </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="checkLogin()">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person-outline"></ion-icon> Login
+          </ion-label>
+          <ion-input placeholder="Enter Username" [(ngModel)]="username" name="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="lock-closed-outline"></ion-icon> Password
+          </ion-label>
+          <ion-input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password"></ion-input>
+        </ion-item>
+        <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+
+        <ion-button expand="block"  type="submit" style="padding-top: 6px;">Login</ion-button>
+      </form>
+      <p class="login-form__footer" align="center"  style="padding-top: 6px;">Dont have account?
+        <a routerLink="/register" class="text-primary">Sign Up</a> now</p>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

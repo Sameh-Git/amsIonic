@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,14 @@ import { HttpClient } from '@angular/common/http';
 export class ProviderService {
   urlProviders = 'http://127.0.0.1:8080/providers';
   provider: any;
+  username = sessionStorage.getItem('username');
+password = sessionStorage.getItem('password');
+
   constructor(private Http: HttpClient) { }
 
   listProviders() {
-    return this.Http.get(this.urlProviders + '/list');
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username +':'+ this.password) });
+    return this.Http.get(this.urlProviders + '/list' ,{ headers });
   }
 
 

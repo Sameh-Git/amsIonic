@@ -11,6 +11,6 @@ export class AppComponent {
     {title: 'Add Provider',url: '/add-provider',icon: 'add-circle'}
    
   ];
-  
+  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
 }

@@ -7,32 +7,32 @@
       <ion-button><a routerLink="/login" >
       <img src="../../assets/logout.png" width="30" height="15"> </a> </ion-button>
     </ion-buttons> 
-    <ion-title>Providers</ion-title>
+    <ion-title>Articles</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
   <div style="padding-top: 0px;" >
-   
+  
+        <h1 style="color:rgb(115, 170, 241)">List of Articles</h1>
   <ion-list>
-    <h1 style="color:rgb(115, 170, 241)">List of Providers</h1>
-  <ion-item *ngFor="let p of providers">
+    
+  <ion-item *ngFor="let a of articles">
  
     <ion-label id="l">
-      <img src="http://127.0.0.1:8080/images/provider/{{p.logo}}"  with="6%" height="5%">
+      <img src="http://127.0.0.1:8080/images/article/{{a.picture}}"  with="6%" height="5%">
     </ion-label>
     <ion-label>
-      <h2>{{p.name}}</h2>
-      <p>{{p.email}}</p>
-      <p>{{p.address}}</p>
+      <h2>{{a.label}}</h2>
+      <p>{{a.provider.name}}</p>
+      <p>{{a.price}}</p>
       <div  >
-      <ion-button (click)="updateProvider(p)"  color="warning"  *ngIf="loginService.srole=='Admin' || loginService.srole=='Superadmin'">Edit</ion-button>
-      <ion-button (click)="deleteProvider(p)"  color="danger" *ngIf="loginService.srole=='Admin' || loginService.srole=='Superadmin'">Delete</ion-button>
+      <ion-button (click)="updateArticle(a)"   color="warning"  *ngIf="loginService.srole=='Admin' || loginService.srole=='Superadmin'">Edit</ion-button>
+      <ion-button (click)="deleteArticle(a)"  color="danger" *ngIf="loginService.srole=='Admin' || loginService.srole=='Superadmin'">Delete</ion-button>
       </div>
     </ion-label>
   </ion-item>
 </ion-list>
-
 </div>
 </ion-content>
 <ion-footer>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons collapse="true" slot="end">
+      <ion-button><a routerLink="/login" >
+      <img src="../../assets/logout.png" width="30" height="15"> </a> </ion-button>
+    </ion-buttons> 
+    <ion-title>Update Article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div style="padding-top: 0px;" >
+    <ion-card align="center"  >
+      <ion-card-header>
+       
+  
+        <ion-card-title></ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+ 
+  <form (ngSubmit)="updateArticle()">
+    <ion-item>
+      <ion-label> <b style="color: rgb(1, 92, 153);"> Article Label </b></ion-label>
+      <ion-input [(ngModel)]="label" name="articleLabel" type="text" id="providerName"   ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b style="color: rgb(1, 92, 153);">Article Price </b></ion-label>
+      <ion-input [(ngModel)]="price" name="articlePrice"  type="text"   ></ion-input>
+    </ion-item>
+
+   
+  
+    <ion-item >
+      
+       <img src="http://127.0.0.1:8080/images/article/{{nomImage}}">
+    
+    </ion-item>
+    
+    <ion-item >
+      <ion-label>  <b style="color: rgb(1, 92, 153);">New Picture </b></ion-label>
+      <ion-input  type="file"  ngModel name="articlePicture"  (change)="onFileChanged($event)" placeholder="Enter Logo" ></ion-input>
+    </ion-item>
+   <br>
+    <ion-button type="submit"  expand="block" style="margin: 4%;">Update Article</ion-button>
+  </form>
+  </ion-card-content></ion-card>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

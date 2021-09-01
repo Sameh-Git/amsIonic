@@ -11,8 +11,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div id="container" style="padding-top:0%;">
+<ion-content color="light">
+  <div style="padding-top: 0px;" >
+    <ion-card align="center"  >
+      <ion-card-header>
+       
+  
+        <ion-card-title></ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+ 
   <form (ngSubmit)="updateProvider()">
     <ion-item>
       <ion-label> <b style="color: rgb(1, 92, 153);"> Provider Name </b></ion-label>
@@ -42,6 +51,7 @@
    <br>
     <ion-button type="submit"  expand="block" style="margin: 4%;">Update Provider</ion-button>
   </form>
+  </ion-card-content></ion-card>
 </div>
 </ion-content>
 <ion-footer>

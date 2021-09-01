@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons collapse="true" slot="end">
+      <ion-button><a routerLink="/login" >
+      <img src="../../assets/logout.png" width="30" height="15"> </a> </ion-button>
+    </ion-buttons> 
+    <ion-title>Add Article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div style="padding-top: 30px;" >
+    <ion-card align="center"  >
+      <ion-card-header>
+       
+  
+        <ion-card-title>  <h1 style="color:rgb(115, 170, 241)">Add Article </h1></ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+  <form #myform="ngForm" (ngSubmit)="createArticle(myform)" >
+   
+    <ion-item >
+      <ion-label>Article Label</ion-label>
+      <ion-input ngModel name="articleLabel" placeholder="Enter Label"  ></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label>Article Price</ion-label>
+      <ion-input ngModel name="articlePrice"  type="text" placeholder="Enter Price"   ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Article Provider</ion-label>
+      <ion-select ngModel name="articleProvider"  ok-text="Ok" cancel-text="Cancel">
+        <ion-select-option  *ngFor="let provider of providers" [value]="provider.id">
+          {{provider.name}}
+      </ion-select-option>
+
+      </ion-select>
+    </ion-item>
+      <ion-item>
+      <ion-label>Article Picture</ion-label>
+      <ion-input  type="file" ngModel name="articleImage" id="providerImage" (change)="onFileChanged($event)" placeholder="Enter Logo" ></ion-input>
+    </ion-item>
+
+    
+   
+   <br>
+    <ion-button type="submit"  expand="block"  style="margin: 4%;">Add Article</ion-button>
+  </form></ion-card-content></ion-card>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+  <ion-title align="center">©2021</ion-title>
+  </ion-toolbar>
+  </ion-footer>

@@ -18,7 +18,6 @@ export class RegistrationService {
       'password': myform.value.password,
       'temp': myform.value.role
     }
-    //return this.Http.post(this.urlProviders + '/add', this.provider,{ headers });
     return this.Http.post(environment.urlRegistration, this.user);
   }
 }

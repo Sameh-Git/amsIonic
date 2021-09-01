@@ -6,6 +6,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  public susername = sessionStorage.getItem("username");;
+  public sfname = sessionStorage.getItem("name");
+  public slname = sessionStorage.getItem("lname");
+  public srole = sessionStorage.getItem("role");
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,9 +22,15 @@ export class AuthenticationService {
         map(
           userData => {
             sessionStorage.setItem('username', username);
-            //sessionStorage.setItem('password', password);
-            //console.log(username + " " + password);
-            //console.log(userData);
+            sessionStorage.setItem('name', userData["name"]);
+            sessionStorage.setItem('lname', userData["lastName"]);
+            sessionStorage.setItem('role', userData["temp"]);
+
+            this.susername =sessionStorage.getItem("username");
+            this.sfname =sessionStorage.getItem("name");
+            this.slname =sessionStorage.getItem("lname");
+            this.srole =sessionStorage.getItem("role");
+           
             let authString = 'Basic ' + btoa(username + ':' + password);
             sessionStorage.setItem('basicauth', authString);
             return userData;
@@ -41,6 +52,10 @@ export class AuthenticationService {
     return !(user === null)   // true or false
   }
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('lname');
+    sessionStorage.removeItem('role');
+    sessionStorage.removeItem('basicauth');
   }
 }

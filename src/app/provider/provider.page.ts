@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProviderService } from './../services/provider.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-provider',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProviderPage implements OnInit {
   providers;
-  constructor( private service: ProviderService, private router: Router) { }
+  constructor( private service: ProviderService, private router: Router,public loginService: AuthenticationService) { }
 
   ngOnInit() {
     this.refreshListProviders();
